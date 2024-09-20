@@ -1,4 +1,4 @@
-// José Castañeda 
+// José Castañeda
 // 1534422
 
 class Nodo {
@@ -6,10 +6,10 @@ class Nodo {
     public anterior: Nodo | null;
     public valor: number;
 
-    constructor() {
+    constructor(valor: number) {
         this.siguiente = null;
         this.anterior = null;
-        this.valor = Math.floor(Math.random() * 9) + 1; // Genera un número aleatorio entre 1 y 9
+        this.valor = valor;
     }
 }
 
@@ -22,8 +22,8 @@ class ListaDobleEnlazada {
         this.cola = null;
     }
 
-    public insertarAlFinal(): void {
-        const nuevoNodo = new Nodo();
+    public insertarAlFinal(valor: number): void {
+        const nuevoNodo = new Nodo(valor);
         if (this.cabeza === null) {
             this.cabeza = nuevoNodo;
             this.cola = nuevoNodo;
@@ -47,9 +47,14 @@ class ListaDobleEnlazada {
     }
 }
 
-// Programa principal
+
 let lista = new ListaDobleEnlazada();
-for (let i = 0; i < 5; i++) {
-    lista.insertarAlFinal();
+let valores = [1, 3, 4, 8, 6];
+
+for (let valor of valores) {
+    lista.insertarAlFinal(valor);
 }
+
 lista.imprimir();
+
+
